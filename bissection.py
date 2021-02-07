@@ -35,7 +35,7 @@ def bisection(f, a, b, N):
 
     a_n = a
     b_n = b
-    for n in range(1, N+1):
+    for n in range(1, N):
         m_n = (a_n + b_n)/2
         f_m_n = f(m_n)
         if f(a_n)*f_m_n < 0:
@@ -50,10 +50,12 @@ def bisection(f, a, b, N):
         else:
             print("Bisection method fails.")
             return None
-    return (a_n + b_n)/2
+    result = (a_n + b_n)/2
+    incertitude = result - a_n
+    return result, incertitude
 
 
 if __name__ == '__main__':
-    # func = lambda x: -0.9*(x**2) + 1.7*x - 17
-    func = lambda x: x**2 - 2
-    print(bisection(func, 1, 2, 6))
+    func = lambda x: (1-0.61*x)/x
+    # func = lambda x: x**2 - 2
+    print(bisection(func, 1.5, 2.0, 10))
