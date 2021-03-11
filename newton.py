@@ -51,9 +51,9 @@ def newton(f,Df,x0,epsilon,max_iter):
     return None
 
 if __name__ == '__main__':
-    p = lambda x: x**2*(sin(x))**2
-    Dp = lambda x: 2*x*sin(x)* (x*cos(x) + sin(x))
-    approx = newton(p, Dp, 5e-3, 1e-100, 1000)
+    p = lambda x: (x-1)**3 + x**2 -2*x + 1
+    Dp = lambda x: 3*x**2 - 4 * x + 1
+    approx = newton(p, Dp, 1, 1e-100, 1000)
     print(approx)
 
     # f = lambda x: x**(1/3)

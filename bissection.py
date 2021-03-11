@@ -1,5 +1,7 @@
+from math import exp, log
+
 import numpy as np
-from math import log
+
 
 def bisection(f, a, b, N):
     '''Approximate solution of f(x)=0 on interval [a,b] by bisection method.
@@ -64,7 +66,12 @@ def calculer_nb_iteration_pour_avoir_incertitude(a, b, incertitude):
 
 
 if __name__ == '__main__':
-    func = lambda x: (1-0.61*x)/x
-    # func = lambda x: x**2 - 2
-    print(bisection(func, 1.5, 2.0, 10))
-    print(calculer_nb_iteration_pour_avoir_incertitude(1.0, 2.0, 0.5*10**-2))
+    func = lambda x: exp(-x) - x
+    a = 0
+    b = 1
+    N = 10
+    incertitude_pour_nombre_diteration = 0.01
+
+    result, incertitude = bisection(func, a, b, N)
+    print(f"resultat: {result}, incertitude: {incertitude}")
+    print(f"nb iterations : {calculer_nb_iteration_pour_avoir_incertitude(a, b, incertitude_pour_nombre_diteration)}")

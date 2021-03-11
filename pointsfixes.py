@@ -34,13 +34,19 @@ def plot(xf, xp, x_start, given_function):
 
 
 def main():
-    g = lambda x: 2/3 * x + 7/(x**2)
+    g1 = lambda x: -2**x + 2
+    g2 = lambda x: -2/x**3
+    g3 = lambda x: -4*(1-x)**3
+    g4 = lambda x: 3*x**2 - 2*x + 1
     x0 = 1
     N = 100
     Ea = 1e-10
 
-    xf, xp = iteration(g, x0, Ea, N)
-    plot(xf, xp, x0, g)
+    xf, xp = iteration(g1, x0, Ea, N)
+    plot(xf, xp, x0, g1)
+    # xf, xp = iteration(g2, x0, Ea, N)
+    # xf, xp = iteration(g3, x0, Ea, N)
+    # xf, xp = iteration(g4, x0, Ea, N)
 
 
 if __name__ == '__main__':
