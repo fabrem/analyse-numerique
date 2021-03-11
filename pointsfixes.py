@@ -1,28 +1,29 @@
+from math import *
+from typing import List, Tuple
+
 import matplotlib.pyplot as plt
 import numpy as np
-from typing import Tuple, List
-from math import *
 
 
-def iteration(given_function, x0, min_error=0.001, max_iteration=3) -> Tuple[float, List]:
+def iteration(g, x0, Ea, N) -> Tuple[float, List]:
     i = 0
     error = 1
     xp = []
-    x = None
-    while error > min_error and i < max_iteration:
-        x = given_function(x0)
-        error = abs(x0 - x)
-        x0 = x
+    xn = 0
+    while error > Ea and i < N:
+        xn = g(x0)
+        error = abs(x0 - xn)
+        x0 = xn
         xp.append(x0)
         i += 1
     print(xp)
-    return x, xp
+    return xn, xp
 
 
 def plot(xf, xp, x_start, given_function):
     function_v = np.vectorize(given_function)
 
-    x = np.linspace(0, 2, 100)
+    x = np.linspace(x_start, xf, 100)
     y = function_v(x)
     plt.plot(x, y)
     plt.plot(xp, function_v(xp), 'bo')
@@ -33,13 +34,13 @@ def plot(xf, xp, x_start, given_function):
 
 
 def main():
-    fx = input("Write function: ")
-    given_function = lambda x: eval(fx)
+    g = lambda x: 2/3 * x + 7/(x**2)
+    x0 = 1
+    N = 100
+    Ea = 1e-10
 
-    x_start = 0.9
-    xf, xp = iteration(given_function, x_start)
-
-    plot(xf, xp, x_start, given_function)
+    xf, xp = iteration(g, x0, Ea, N)
+    plot(xf, xp, x0, g)
 
 
 if __name__ == '__main__':
