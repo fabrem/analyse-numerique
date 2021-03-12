@@ -2,8 +2,12 @@
 import numpy as np
 from scipy.linalg import lu
 
-A = np.array([[3, -1, 2], [1, 2, 3], [2, -2, -1]])
-# L, U = lu(A, permute_l=True)
+A = np.array([[1, 2, 0], [2, 3, 2], [0, 1, 4]])
+L, U = lu(A, permute_l=True)
+print("normal LU: "+ "\n")
+print(f"L = \n{L}")
+print(f"U = \n{U}")
+print()
 
 # A = np.array([[60.0, 30.0, 20.0], [30.0, 20.0, 15.0], [20.0, 15.0, 12.0]])
 def crout(A):
@@ -36,7 +40,9 @@ def crout(A):
             U[j][i] = tempU/L[j][j]
 
     return [np.array(L), np.array(U)]
+
 L, U = crout(A)
+print("Crout")
 print(f"A = \n{A}")
 print(f"L = \n{L}")
 print(f"U = \n{U}")
