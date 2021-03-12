@@ -1,13 +1,6 @@
 # Méthode de décomposition -> 1. Ly = b ( trouver y ) 2. Ux = y (trouver x)
 import numpy as np
-from scipy.linalg import lu
-
 A = np.array([[1, 2, 0], [2, 3, 2], [0, 1, 4]])
-L, U = lu(A, permute_l=True)
-print("normal LU: "+ "\n")
-print(f"L = \n{L}")
-print(f"U = \n{U}")
-print()
 
 # A = np.array([[60.0, 30.0, 20.0], [30.0, 20.0, 15.0], [20.0, 15.0, 12.0]])
 def crout(A):
