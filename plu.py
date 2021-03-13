@@ -1,6 +1,6 @@
 # Méthode de décomposition -> 1. Ly = b ( trouver y ) 2. Ux = y (trouver x)
 import numpy as np
-A = np.array([[1, 2, 0], [2, 3, 2], [0, 1, 4]])
+A = np.array([[1, 1, 1], [2, 5, 5], [4, 9, 15]])
 
 # A = np.array([[60.0, 30.0, 20.0], [30.0, 20.0, 15.0], [20.0, 15.0, 12.0]])
 def crout(A):

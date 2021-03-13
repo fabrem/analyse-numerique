@@ -1,4 +1,4 @@
-from math import exp, log
+from math import exp, log, pi
 
 import numpy as np
 
@@ -66,9 +66,9 @@ def calculer_nb_iteration_pour_avoir_incertitude(a, b, incertitude):
 
 
 if __name__ == '__main__':
-    func = lambda x: exp(-x) - x
-    a = 0
-    b = 1
+    func = lambda x: abs(x) - 2
+    a = -pi
+    b = 3
     N = 10
     incertitude_pour_nombre_diteration = 0.01
 

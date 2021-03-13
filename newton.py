@@ -1,4 +1,5 @@
-from math import cos, sin
+from math import cos, sin, exp
+
 
 
 def newton(f,Df,x0,epsilon,max_iter):
@@ -51,8 +52,8 @@ def newton(f,Df,x0,epsilon,max_iter):
     return None
 
 if __name__ == '__main__':
-    p = lambda x: (x-1)**3 + x**2 -2*x + 1
-    Dp = lambda x: 3*x**2 - 4 * x + 1
+    p = lambda x: exp(x) - x - 2
+    Dp = lambda x: exp(x) - 1
     approx = newton(p, Dp, 1, 1e-100, 1000)
     print(approx)
 
